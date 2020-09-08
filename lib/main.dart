@@ -17,7 +17,8 @@ class Menu extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
-              Example1(),
+              //Example1(),
+              Example2(),
             ],
           ),
         ),
@@ -46,7 +47,7 @@ class MenuItem extends StatelessWidget {
   }
 }
 
-// Problme 1: Overflow error
+// Problem 1: Overflow error
 class Example1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,24 @@ class Example1 extends StatelessWidget {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+// Problem 2: Viewport was given unbounded height error
+class Example2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView( // Solution: wrap it with widget Expanded
+        children: [
+          MenuItem('🍔', 'Burger'),
+          MenuItem('🌭', 'Hot Dog'),
+          MenuItem('🍟', 'Fries'),
+          MenuItem('🥤', 'Soda'),
+          MenuItem('🍦', 'Ice Cream'),
         ],
       ),
     );
