@@ -18,7 +18,8 @@ class Menu extends StatelessWidget {
           child: Column(
             children: [
               //Example1(),
-              Example2(),
+              //Example2(),
+              Example3(),
             ],
           ),
         ),
@@ -83,6 +84,37 @@ class Example2 extends StatelessWidget {
           MenuItem('🍦', 'Ice Cream'),
         ],
       ),
+    );
+  }
+}
+
+// Problem 3: Invisible VerticalDivider
+class Example3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        RaisedButton(
+          onPressed: () {
+            print('Pickup button pressed.');
+          },
+          child: Text('Pickup'),
+        ),
+        SizedBox(
+          height: 48,
+          child: VerticalDivider( // Solution: wrap it with SizedBox with height 48
+            width: 20,
+            thickness: 5,
+          ),
+        ),
+        RaisedButton(
+          onPressed: () {
+            print('Delivery button pressed.');
+          },
+          child: Text('Delivery'),
+        ),
+      ],
     );
   }
 }
